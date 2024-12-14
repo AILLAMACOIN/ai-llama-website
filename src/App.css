@@ -1,0 +1,206 @@
+/* src/App.css */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap');
+
+:root {
+  background-color: #000000;
+}
+
+html {
+  background-color: #000000;
+}
+
+body, #root {
+  margin: 0;
+  padding: 0;
+  background-color: #000000 !important;
+  background: #000000 !important;
+  font-family: 'Orbitron', Roboto, sans-serif;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Remove any potential white background from containers */
+.MuiContainer-root,
+.MuiBox-root,
+.MuiPaper-root {
+  background-color: transparent !important;
+}
+
+/* Cyberpunk grid overlay - more subtle */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(90deg, rgba(182, 36, 255, 0.02) 1px, transparent 1px) 0 0,
+    linear-gradient(0deg, rgba(182, 36, 255, 0.02) 1px, transparent 1px) 0 0;
+  background-size: 20px 20px;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Animated neon glow effect - more subtle */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 50%, 
+    rgba(182, 36, 255, 0.08) 0%,
+    rgba(182, 36, 255, 0.05) 20%,
+    rgba(182, 36, 255, 0.02) 40%,
+    transparent 60%);
+  opacity: 0.5;
+  animation: pulseGlow 8s ease-in-out infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Floating particles effect */
+.particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: rgba(182, 36, 255, 0.5);
+  border-radius: 50%;
+  animation: float 20s linear infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(100vh) translateX(-50%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(-100px) translateX(50%);
+    opacity: 0;
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.2);
+  }
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Diagonal cyber lines - more subtle */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(182, 36, 255, 0.03) 0%,
+    rgba(182, 36, 255, 0.03) 1px,
+    transparent 1px,
+    transparent 10px
+  );
+  animation: moveLines 20s linear infinite;
+  z-index: -1;
+}
+
+@keyframes moveLines {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+.hero img {
+  width: 250px;
+  margin-bottom: 20px;
+  border: 2px solid #b624ff;
+  border-radius: 50%;
+  box-shadow: 
+    0 0 20px rgba(182, 36, 255, 0.5),
+    0 0 40px rgba(182, 36, 255, 0.3),
+    0 0 60px rgba(182, 36, 255, 0.1);
+  animation: glowPulse 3s ease-in-out infinite;
+  position: relative;
+  z-index: 1;
+}
+
+/* Enhanced glow pulse animation */
+@keyframes glowPulse {
+  0% {
+    box-shadow: 
+      0 0 20px rgba(182, 36, 255, 0.5),
+      0 0 40px rgba(182, 36, 255, 0.3),
+      0 0 60px rgba(182, 36, 255, 0.1);
+  }
+  50% {
+    box-shadow: 
+      0 0 30px rgba(182, 36, 255, 0.7),
+      0 0 60px rgba(182, 36, 255, 0.5),
+      0 0 90px rgba(182, 36, 255, 0.3);
+  }
+  100% {
+    box-shadow: 
+      0 0 20px rgba(182, 36, 255, 0.5),
+      0 0 40px rgba(182, 36, 255, 0.3),
+      0 0 60px rgba(182, 36, 255, 0.1);
+  }
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  text-shadow: 
+    0 0 10px rgba(182, 36, 255, 0.8),
+    0 0 20px rgba(182, 36, 255, 0.5),
+    0 0 30px rgba(182, 36, 255, 0.3);
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.hero p {
+  max-width: 600px;
+  margin: 20px auto;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: #b3b3ff;
+  text-shadow: 0 0 5px rgba(182, 36, 255, 0.5);
+  position: relative;
+  z-index: 1;
+}
